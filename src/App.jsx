@@ -13,9 +13,10 @@ function App() {
   if(rosterListImage){
     try{
       const detectedNames = await detectImage(rosterListImage);
-      console.log("Detected Names:", detectedNames);
+      // console.log("detected Names:", detectedNames);
+      // returns last names from detected students names
       const lastNames = extractNames(detectedNames)
-
+      console.log(lastNames)
       setRosterLastNames(lastNames);
 
     } catch (error) {
