@@ -26,16 +26,18 @@ function ScreenshotDetection() {
 }
 
 const zoomImageUpload = async(e) => {
-    const zoomImageUpload = e.target.files;
-    console.log(zoomImageUpload)
+    const zoomListImage = e.target.files;
+    console.log(zoomListImage)
 
-    if(zoomImageUpload.length > 0) {
+    if(zoomListImage.length > 0) {
         try{
             const lastNames = [];
-            for (const zoomImage of zoomImageUpload) {
+            // looping through each zoom image in the zoomListImage array
+            for (const zoomImage of zoomListImage) {
                 const detectedNames = await detectImage(zoomImage);
                 // excludes instructors and Ts
                 const excludedNames = ["Jessica Song(TA)","Junghoon Yoon (Host)"];
+                //gets lastnames from detected names and filters out names from the exludedNames array
                 const filteredNames = extractNames(detectedNames)
                 .filter(name => !excludedNames.includes(name));
                 lastNames.push(...filteredNames);
