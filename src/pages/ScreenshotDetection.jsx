@@ -1,11 +1,13 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { extractNames, detectImage } from "../utils/tesseract";
 
 function ScreenshotDetection() {
 
   const [rosterLastNames, setRosterLastNames] = useState([]);
   const [zoomLastNames, setZoomLastNames] = useState([]);
+  const [result, showResults] = useState('');
 
+  
   const rosterImageUpload = async(e) =>{
     const rosterListImage = e.target.files[0]
     console.log(rosterListImage)
@@ -18,7 +20,6 @@ function ScreenshotDetection() {
       const lastNames = extractNames(detectedNames)
       console.log(lastNames)
       setRosterLastNames(lastNames);
-
     } catch (error) {
       console.log("error:", error)
     }
@@ -52,6 +53,28 @@ const zoomImageUpload = async(e) => {
 
 }
 
+const compareLists = () =>{
+    // making sure both images are upload before comparing 
+    if(rosterLastNames.length === 0 || zoomLastNames.length === 0 ) {
+        alert("Both roster and zoom image must be uploaded before comparing")
+    }
+
+    // last names to lowercase for consistent comparison
+    const lowercaseRosterLastNames = rosterLastNames.map((name) => name.toLowerCase());
+    const lowercaseZoomLastNames = zoomLastNames.map((name) => name.toLowerCase());   
+
+    // Find absent students (present in attendance, not in Zoom)
+    const absentLastNames = lowercaseRosterLastNames.filter((lastName) => !lowercaseZoomLastNames.includes(lastName))
+    console.log(absentLastNames)
+    if (absentLastNames.length === 0 ){
+        showResults("All students are present")
+    } else {
+        showResults(`Absent Last Names: ${absentLastNames.join(', ')}`)
+    }
+}
+
+
+
   return (
     <div>
             <h1>Attendance Checker</h1>
@@ -60,6 +83,10 @@ const zoomImageUpload = async(e) => {
 
             <label> Upload Zoom participants list </label>
             <input type="file" id="zoomImageUpload" onChange={zoomImageUpload} />
+
+            <button onClick={compareLists}>Compare</button>
+
+            <div id="result">{result}</div>
 
     </div>
   )
