@@ -17,7 +17,6 @@ Attendance Checker is a tool designed to simplify attendance management using th
 ### Image Uploads
 • Upload the attendance roster image.  
 • Upload the Zoom participants list image.  
-• After both images have been uploaded the last names of each list will populate on the page.  
 
 ### Initiate Comparison  
 • Click the "Compare" button to start the automated attendance comparison.   

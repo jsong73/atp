@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { extractNames, detectImage } from "../utils/tesseract";
+import { extractRosterNames, extractZoomNames, detectImage } from "../utils/tesseract";
 
 function ScreenshotDetection() {
 
@@ -15,9 +15,9 @@ function ScreenshotDetection() {
   if(rosterListImage){
     try{
       const detectedNames = await detectImage(rosterListImage);
-      console.log("detected Names:", detectedNames);
+      console.log("roster detected Names:", detectedNames);
       // returns last names from detected students names
-      const lastNames = extractNames(detectedNames)
+      const lastNames = extractRosterNames(detectedNames)
       console.log("roster last names:", lastNames)
       setRosterLastNames(lastNames);
     } catch (error) {
@@ -33,18 +33,17 @@ const zoomImageUpload = async(e) => {
     if(zoomListImage.length > 0) {
         try{
             const lastNames = [];
-            // looping through each zoom image in the zoomListImage array
+            // // looping through each zoom image in the zoomListImage array
             for (const zoomImage of zoomListImage) {
                 const detectedNames = await detectImage(zoomImage);
-                // excludes instructors and Ts
-                const excludedNames = ["Jessica Song(TA)","Junghoon Yoon (Host)"];
-                //gets lastnames from detected names and filters out names from the exludedNames array
-                const filteredNames = extractNames(detectedNames)
-                .filter(name => !excludedNames.includes(name));
-                lastNames.push(...filteredNames);
+            console.log("zoom detected names:", detectedNames)
+            // Extract last names from detected names and check if roster last names are included
+            const filteredNames = extractZoomNames(detectedNames)
+            console.log("Zoom filtered names:", filteredNames);
 
-                console.log("zoom filtered names:" , filteredNames)
-            }
+            lastNames.push(...filteredNames);
+        }
+            
             setZoomLastNames(lastNames);
         } catch(error){
             console.log("error:", error)
@@ -61,10 +60,16 @@ const compareLists = () =>{
 
     // last names to lowercase for consistent comparison
     const lowercaseRosterLastNames = rosterLastNames.map((name) => name.toLowerCase());
-    const lowercaseZoomLastNames = zoomLastNames.map((name) => name.toLowerCase());   
+    const lowercaseZoomNames = zoomLastNames.map((name) => name.toLowerCase());   
 
-    // Find absent students (present in attendance, not in Zoom)
-    const absentLastNames = lowercaseRosterLastNames.filter((lastName) => !lowercaseZoomLastNames.includes(lastName))
+    console.log("lowercase roster names:" , lowercaseRosterLastNames)
+    console.log("lowercase zoom names:" ,lowercaseZoomNames)
+
+    // absent names are if the zoom names do not contain the roster last names 
+    const absentLastNames = lowercaseRosterLastNames.filter(
+        (lastName) => !lowercaseZoomNames.some((zoomName) => zoomName.includes(lastName))
+    );
+
     console.log(absentLastNames)
     if (absentLastNames.length === 0 ){
         showResults("All students are present")
