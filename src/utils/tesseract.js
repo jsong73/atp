@@ -18,7 +18,7 @@ export function extractRosterNames(text) {
     return seperatedNames.map(names=> {
         // filters through seperated names and splits at comma or period (safety measure)
         const filteredNames = names.split(/[,.]\s*/);
-        console.log("Roster filtered names:", filteredNames)
+        // console.log("Roster filtered names:", filteredNames)
         //grabs just the last name since format is last name, first name
         return filteredNames[0].trim(); 
         // removes empty strings from lastNames array
@@ -32,7 +32,7 @@ export function extractZoomNames(text) {
     return separatedNames.map(name => {
         // removes '©' and '®' characters
         const filteredName = name.replace(/©/g, '').replace(/®/g, '').trim();
-        console.log("Zoom names:", filteredName);
+        // console.log("Zoom names:", filteredName);
         return filteredName;
     }).filter(name => name);
 }

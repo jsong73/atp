@@ -62,8 +62,8 @@ const compareLists = () =>{
     const lowercaseRosterLastNames = rosterLastNames.map((name) => name.toLowerCase());
     const lowercaseZoomNames = zoomLastNames.map((name) => name.toLowerCase());   
 
-    console.log("lowercase roster names:" , lowercaseRosterLastNames)
-    console.log("lowercase zoom names:" ,lowercaseZoomNames)
+    // console.log("lowercase roster names:" , lowercaseRosterLastNames)
+    // console.log("lowercase zoom names:" ,lowercaseZoomNames)
 
     // absent names are if the zoom names do not contain the roster last names 
     const absentLastNames = lowercaseRosterLastNames.filter(
