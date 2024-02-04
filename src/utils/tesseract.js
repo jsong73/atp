@@ -18,6 +18,7 @@ export function extractNames(text) {
     return seperatedNames.map(names=> {
         // filters through seperated names and splits at comma or period (safety measure)
         const filteredNames = names.split(/[,.]\s*/);
+        console.log("filtered names:", filteredNames)
         //grabs just the last name since format is last name, first name
         return filteredNames[0].trim(); 
         // removes empty strings from lastNames array

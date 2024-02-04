@@ -15,10 +15,10 @@ function ScreenshotDetection() {
   if(rosterListImage){
     try{
       const detectedNames = await detectImage(rosterListImage);
-      // console.log("detected Names:", detectedNames);
+      console.log("detected Names:", detectedNames);
       // returns last names from detected students names
       const lastNames = extractNames(detectedNames)
-      console.log(lastNames)
+      console.log("roster last names:", lastNames)
       setRosterLastNames(lastNames);
     } catch (error) {
       console.log("error:", error)
@@ -43,7 +43,7 @@ const zoomImageUpload = async(e) => {
                 .filter(name => !excludedNames.includes(name));
                 lastNames.push(...filteredNames);
 
-                console.log(filteredNames)
+                console.log("zoom filtered names:" , filteredNames)
             }
             setZoomLastNames(lastNames);
         } catch(error){
@@ -78,10 +78,11 @@ const compareLists = () =>{
   return (
     <div>
             <h1>Attendance Checker</h1>
-            <label> Upload your attendance roster list </label>
+
+            <label> Upload Roster image</label>
             <input type="file" id="rosterImageUpload" onChange={rosterImageUpload} />
 
-            <label> Upload Zoom participants list </label>
+            <label> Upload Zoom participants image </label>
             <input type="file" id="zoomImageUpload" onChange={zoomImageUpload} />
 
             <button onClick={compareLists}>Compare</button>
