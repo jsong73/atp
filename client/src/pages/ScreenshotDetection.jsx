@@ -76,19 +76,19 @@ const compareLists = () =>{
         showResults(`Absent Last Names: ${absentLastNames.join(', ')}`)
     }
 }
-
-const getData = () => {
-  fetch("http://localhost:8080/mark_attendance")
-  .then(response => {
-    return response.json()
-  
-  })
-  .then(data => {
-    console.log(response)
-    console.log(data)
-    setInfo(data)
-  })
-}
+    
+const runScript = () => {
+  fetch("http://127.0.0.1:5000/mark_attendance") 
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      setInfo(data);
+    })
+    .catch(error => {
+      console.log("error:", error);
+      setInfo("Failed to run script");
+    });
+};
 
   return (
     <div>
@@ -104,7 +104,7 @@ const getData = () => {
 
             <div id="result">{result}</div>
 
-            <button onClick={getData}>get data</button>
+            <button onClick={runScript}>Start Script</button>
 
     </div>
   )
