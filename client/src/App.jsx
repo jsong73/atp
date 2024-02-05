@@ -5,6 +5,7 @@ import ScreenshotDetection from './pages/ScreenshotDetection';
 import VideoDetection from "./pages/VideoDetection";
 import './App.css'
 
+
 function App() {
   return (
     <Router>

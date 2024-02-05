@@ -3,9 +3,26 @@
   margin: 0 auto;
   text-align: center;
 }
+#detectionHeader{
+  font-weight:700;
+}
 
 .detectionBtn {
   margin-top: 30px;
-  margin-right: 30px;  /* Adjust the spacing as needed */
-  margin-left: 30px;   /* Adjust the spacing as needed */
+  margin-right: 30px; 
+  margin-left: 30px;   
 }
+
+ label{
+  font-weight:500;
+ }
+
+ input{
+   margin-left: 10px;
+ }
+
+ #scriptBtn{
+margin-top: 50px;
+ }
+
+ 

@@ -104,7 +104,7 @@ const runScript = () => {
 
             <div id="result">{result}</div>
 
-            <button onClick={runScript}>Run script</button>
+            <button id="scriptBtn" onClick={runScript}>Run script</button>
 
     </div>
   )
