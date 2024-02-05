@@ -1,5 +1,11 @@
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px; */
   margin: 0 auto;
   text-align: center;
+}
+
+.detectionBtn {
+  margin-top: 30px;
+  margin-right: 30px;  /* Adjust the spacing as needed */
+  margin-left: 30px;   /* Adjust the spacing as needed */
 }
