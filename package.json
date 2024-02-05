@@ -1,10 +1,17 @@
 {
+  "scripts": {
+    "start": "concurrently \"npm:server\" \"npm:client\"",
+    "server": "flask run",
+    "client": "cd client && npm run dev"
+  },
   "dependencies": {
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.15.7",
     "@mui/material": "^5.15.7"
   },
-  "proxy": "http://localhost:8080" 
- 
+  "proxy": "http://localhost:8080",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
 }

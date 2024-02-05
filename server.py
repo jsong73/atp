@@ -10,6 +10,7 @@ CORS(app)
 @cross_origin(origin='*')
 def mark_attendance():
     try:
+        # path to quick attendance python script
         result = subprocess.run(["python","C:\\Users\\jenni\\desktop\\2U\\QuickAttendance\\attendance.py"], capture_output=True, text=True)
         
         if result.returncode == 0:

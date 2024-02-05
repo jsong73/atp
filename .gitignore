@@ -1,1 +1,8 @@
+# node modules
 node_modules
+
+# Exclude .flaskenv file
+.flaskenv
+
+# Exclude env folder
+env/
