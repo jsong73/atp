@@ -1,6 +1,6 @@
-# tesseract-attendance
+# ATP
 
-Tesseract attendance is a tool designed to simplify attendance management using the Tesseract API. With this application, users can effortlessly handle attendance by following a straightforward process. No more manual searches through Zoom participants – just snap a picture, upload it, and let the tool intelligently compare it to the student roster list. 
+ATP is a tool designed to simplify attendance management using the Tesseract API. With this application, users can effortlessly handle attendance by following a straightforward process. No more manual searches through Zoom participants – just snap a picture, upload it, and let the tool intelligently compare it to the student roster list. 
 
 ## Important Format Considerations
 • Ensure that student names in the roster image follows the "last name, first name" format for accurate extraction. Zoom participants image does not need to follow the format, but does need to include the students last name to be accounted for.  
