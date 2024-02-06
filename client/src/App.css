@@ -13,16 +13,28 @@
   margin-left: 30px;   
 }
 
- label{
+label{
   font-weight:500;
  }
 
- input{
+input{
    margin-left: 10px;
  }
 
- #scriptBtn{
-margin-top: 50px;
+#scriptBtn{
+  margin-top: 50px;
  }
 
- 
+#result {
+  padding-top: 4%;
+  max-width: 1000px;
+  margin: 0 auto ; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#compareBtn{
+  margin-left: 30px;
+}

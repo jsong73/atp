@@ -100,7 +100,7 @@ const runScript = () => {
             <label> Upload Zoom participants image </label>
             <input type="file" id="zoomImageUpload" onChange={zoomImageUpload} />
 
-            <button onClick={compareLists}>Compare</button>
+            <button id="compareBtn" onClick={compareLists}>Compare</button>
 
             <div id="result">{result}</div>
 
