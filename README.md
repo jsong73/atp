@@ -34,9 +34,11 @@ You can also take advantage of the "Run Script" feature to automate the attendan
 3. The script will automatically navigate through the list, marking each student as present.
 
 ### Quick Stop
-To stop the script promptly, move your mouse to the top left corner of the screen.
+To stop the script promptly, move your mouse to the top left corner of the screen.  
 
-https://github.com/jsong73/tesseract-attendance/assets/111620893/fbb7ee5e-06d7-47da-bfa8-2c7a226eec2c
+
+https://github.com/jsong73/atp/assets/111620893/56873e04-d05b-4519-89cc-cb5474ddf844  
+
 
 ## Future Developments  
 Future developments will include video extraction for larger classes.  
