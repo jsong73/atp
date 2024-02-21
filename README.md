@@ -7,11 +7,39 @@ ATP is a tool designed to simplify attendance management using the Tesseract API
 • Images must be uploaded in .png, or .jpg format.  
 
 ## Getting Started
-1. First, start the server by running
+1. Set up a virtual environment to manage project dependencies by running the appropriate command for your system
+   
+```  
+# mac/unix
+python3 -m venv env
+source env/bin/activate
+
+# windows
+py -m venv env
+.\env\Scripts\activate
+```
+2. Install node & python dependencies by running the command   
+
+```  
+npm run install-node
+npm run install-python  
+```  
+3. Create .flaskenv file by running the command 
+
+```  
+touch .flaskenv
+```  
+4. Inside the .flaskenv file add 
+
+```  
+FLASK_APP=server.py
+FLASK_ENV=development
+```  
+
+4. Then start the server by running
 
 ```
 npm run start
-
 ```
 2. Open http://127.0.0.1:5173/ to view in browser.
 3. Click screen shot detection (video extraction is still under development).
