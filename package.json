@@ -2,7 +2,9 @@
   "scripts": {
     "start": "concurrently \"npm:server\" \"npm:client\"",
     "server": "flask run",
-    "client": "cd client && npm run dev"
+    "client": "cd client && npm run dev",
+    "install-node": "cd client && npm install && cd .. && npm install",
+    "install-python": "pip install flask flask-cors python-dotenv requests"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
