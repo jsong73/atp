@@ -36,17 +36,18 @@ FLASK_APP=server.py
 FLASK_ENV=development
 ```  
 
-4. Then start the server by running
+5. Then start the server by running
 
 ```
 npm run start
-```
-2. Open http://127.0.0.1:5173/ to view in browser.
-3. Click screen shot detection (video extraction is still under development).
-4. Upload the attendance roster image.  
-5. Upload the Zoom participants list image.  
-6. Click the "Compare" button to start the automated attendance comparison.   
-7. Absent students will be intelligently identified and displayed for quick reference. Absent students referes to students who are not included in the Zoom participants image but are included in the attendance roster.
+```  
+  
+6. Open http://127.0.0.1:5173/ to view in browser.  
+7. Click screen shot detection (video extraction is still under development).  
+8. Upload the attendance roster image.   
+9. Upload the Zoom participants list image.  
+10. Click the "Compare" button to start the automated attendance comparison.   
+11. Absent students will be intelligently identified and displayed for quick reference. Absent students referes to students who are not included in the Zoom participants image but are included in the attendance roster.
    
 [screen-capture (4).webm](https://github.com/jsong73/tesseract-attendance/assets/111620893/79418945-9f2f-4b1d-8b43-ad0317c7f555)  
 
